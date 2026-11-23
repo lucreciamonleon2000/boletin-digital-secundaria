@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permiso para conectarse al backend PHP en Railway -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Permiso para detectar modo avión / sin conexión antes de llamar a la API (R3) -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".BoletinApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BoletinDigital">
+
+        <!-- Pantalla principal: inicio de sesión -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- Pantalla: Panel Central / Dashboard de Gestión -->
+        <activity
+            android:name=".MenuPrincipalActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: listado de alumnos -->
+        <activity
+            android:name=".AlumnosActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: detalle del alumno -->
+        <activity
+            android:name=".DetalleAlumnoActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: registrar nuevo alumno -->
+        <activity
+            android:name=".NuevoAlumnoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: confirmar registro -->
+        <activity
+            android:name=".ConfirmarAlumnoActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: Carga de Calificaciones (Planilla escolar docente/preceptor) -->
+        <activity
+            android:name=".CargarNotasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Gestión Institucional de Escuelas y Sedes -->
+        <activity
+            android:name=".InstitucionActivity"
+            android:exported="false" />
+        <!-- Pantalla: Portal Académico del Estudiante y Tutor (Boletín, Asistencia, Previas) -->
+        <activity
+            android:name=".BoletinAlumnoActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: Previas y Mesas de Examen -->
+        <activity
+            android:name=".PreviasMesasActivity"
+            android:exported="false" />
+
+        <!-- Pantalla: Asistencia y Notificaciones -->
+        <activity
+            android:name=".AsistenciaAvisosActivity"
+            android:exported="false" />
+
+
+        <!-- Servicio de Notificaciones Push de Firebase Cloud Messaging (FCM - R4) -->
+        <service
+            android:name=".BoletinFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    
+        <!-- Pantalla: Carga de Asistencia Escolar (Preceptor / Docente) -->
+        <activity
+            android:name=".CargarAsistenciaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Gestión y Publicación de Avisos Institucionales (Preceptor / Docente) -->
+        <activity
+            android:name=".GestionAvisosActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Gestión de Mesas Evaluadoras (Preceptor / Docente) -->
+        <activity
+            android:name=".GestionMesasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Gestión de Materias Previas por Alumno (Preceptor / Docente) -->
+        <activity
+            android:name=".GestionPreviasActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla: Perfil del Preceptor / Docente -->
+        <activity
+            android:name=".PerfilDocenteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+
+</manifest>
